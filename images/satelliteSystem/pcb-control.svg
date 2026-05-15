@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Control systems PCB concept">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#273149"/><stop offset="1" stop-color="#0b101b"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g fill="#101c2f" stroke="#8ee4ff" stroke-width="4">
+    <rect x="352" y="196" width="196" height="168" rx="12"/>
+    <circle cx="450" cy="280" r="42" fill="#172842"/>
+  </g>
+  <g stroke="#78f2c8" stroke-width="5" fill="none" opacity=".8" filter="url(#glow)">
+    <path d="M450 196V84h-210"/>
+    <path d="M548 280h236"/>
+    <path d="M450 364v112h-210"/>
+    <path d="M352 280H116"/>
+    <path d="M380 220 224 112"/>
+    <path d="M520 340 676 448"/>
+  </g>
+  <g fill="#8ee4ff">
+    <circle cx="240" cy="84" r="10"/><circle cx="784" cy="280" r="10"/><circle cx="240" cy="476" r="10"/><circle cx="116" cy="280" r="10"/><circle cx="224" cy="112" r="10"/><circle cx="676" cy="448" r="10"/>
+  </g>
+  <g stroke="#8ee4ff" stroke-width="3" fill="none" opacity=".65">
+    <path d="M394 280a56 56 0 0 1 112 0"/><path d="M404 300a48 48 0 0 0 92 0"/>
+  </g>
+  <text x="48" y="520" fill="#e8fbff" font-family="Arial" font-size="28" font-weight="700">CONTROL LOOP</text>
+</svg>

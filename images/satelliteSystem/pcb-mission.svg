@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Mission architecture PCB concept">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#103236"/><stop offset="1" stop-color="#07141d"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g stroke="#2ed3b7" stroke-width="5" fill="none" opacity=".76" filter="url(#glow)">
+    <path d="M92 96h220v95h130v112h170v130h190"/>
+    <path d="M92 464h155V338h175V210h190V96h190"/>
+    <path d="M188 96v284h135"/>
+    <path d="M450 303v132h164"/>
+  </g>
+  <g fill="#102b35" stroke="#8ee4ff" stroke-width="4">
+    <rect x="338" y="214" width="154" height="132" rx="10"/>
+    <rect x="622" y="82" width="104" height="76" rx="8"/>
+    <rect x="126" y="388" width="104" height="76" rx="8"/>
+  </g>
+  <g fill="#8ee4ff">
+    <circle cx="92" cy="96" r="11"/><circle cx="802" cy="433" r="11"/><circle cx="802" cy="96" r="11"/><circle cx="92" cy="464" r="11"/>
+  </g>
+  <text x="48" y="520" fill="#e8fbff" font-family="Arial" font-size="28" font-weight="700">MISSION BUS</text>
+</svg>

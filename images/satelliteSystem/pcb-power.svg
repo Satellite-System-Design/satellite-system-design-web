@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Power subsystem PCB concept">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#2e2c18"/><stop offset="1" stop-color="#0b1018"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g stroke="#f3d36a" stroke-width="6" fill="none" opacity=".86" filter="url(#glow)">
+    <path d="M96 180h188v96h148"/>
+    <path d="M96 380h188v-96h148"/>
+    <path d="M468 280h148v-96h188"/>
+    <path d="M468 280h148v96h188"/>
+  </g>
+  <g fill="#181f24" stroke="#fff0a3" stroke-width="4">
+    <rect x="348" y="210" width="136" height="140" rx="10"/>
+    <rect x="124" y="132" width="112" height="96" rx="8"/>
+    <rect x="124" y="332" width="112" height="96" rx="8"/>
+    <rect x="664" y="132" width="112" height="96" rx="8"/>
+    <rect x="664" y="332" width="112" height="96" rx="8"/>
+  </g>
+  <g fill="#fff0a3">
+    <circle cx="96" cy="180" r="10"/><circle cx="96" cy="380" r="10"/><circle cx="804" cy="184" r="10"/><circle cx="804" cy="376" r="10"/>
+  </g>
+  <path d="M414 238h38l-27 46h38l-56 74 18-54h-34z" fill="#f3d36a"/>
+  <text x="48" y="520" fill="#fff6c8" font-family="Arial" font-size="28" font-weight="700">POWER DISTRIBUTION</text>
+</svg>
