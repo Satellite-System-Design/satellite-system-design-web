@@ -498,12 +498,11 @@ h2 {
 
 .project-controls {
     position: absolute;
-    left: 50%;
+    right: clamp(28px, 5vw, 72px);
     bottom: 34px;
     z-index: 20;
     display: flex;
     gap: 12px;
-    transform: translateX(-50%);
 }
 
 .project-controls button {

@@ -22,7 +22,7 @@
                 <div class="nav-group">
                     <button id="projectOverlayOpen" type="button" aria-label="Open project showcase">Project</button>
                 </div>
-                <a href="#details">Service</a>
+                <a href="#service">Service</a>
                 <div class="nav-group">
                     <button id="systemsOverlayOpen" type="button" aria-label="Open systems showcase">Systems</button>
                 </div>
@@ -30,8 +30,8 @@
                     <button type="button" aria-label="Open company links">Company</button>
                     <div class="nav-menu">
                         <a href="#mission">Mission</a>
-                        <a href="#details">Updates</a>
-                        <a href="#footer">Privacy Policy</a>
+                        <a href="#updates" data-overlay-target="updatesOverlay">Updates</a>
+                        <a href="#privacy" data-overlay-target="privacyOverlay">Privacy Policy</a>
                     </div>
                 </div>
             </nav>
@@ -49,7 +49,7 @@
             </div>
         </section>
 
-        <section class="strategy-section" aria-labelledby="market-title">
+        <section id="service" class="strategy-section" aria-labelledby="market-title">
             <div class="strategy-inner">
                 <p class="eyebrow">Project + Product + Service</p>
                 <h2 id="market-title">Solving advanced space challenges through innovation.</h2>
@@ -207,6 +207,33 @@
             </div>
         </section>
 
+        <section id="updatesOverlay" class="info-overlay" aria-label="Updates" aria-hidden="true">
+            <div class="info-panel">
+                <button class="info-close" type="button" aria-label="Close updates overlay">×</button>
+                <p class="eyebrow">Updates</p>
+                <h2>Project Notes And Releases</h2>
+                <p>
+                    Updates will share mission design progress, subsystem experiments, research notes,
+                    product direction, and service milestones as the satellite systems work evolves.
+                </p>
+                <a href="#service">View Service Direction</a>
+            </div>
+        </section>
+
+        <section id="privacyOverlay" class="info-overlay" aria-label="Privacy Policy" aria-hidden="true">
+            <div class="info-panel">
+                <button class="info-close" type="button" aria-label="Close privacy policy overlay">×</button>
+                <p class="eyebrow">Privacy Policy</p>
+                <h2>Privacy First</h2>
+                <p>
+                    We keep contact and collaboration details limited to the purpose of responding,
+                    coordinating work, and improving the satellite systems experience. We do not sell
+                    personal information.
+                </p>
+                <a href="mailto:contact@constellation-verse.example">contact@constellation-verse.example</a>
+            </div>
+        </section>
+
         <section id="details" class="details">
             <div>
                 <p class="eyebrow">Research Direction</p>
@@ -224,7 +251,7 @@
         <nav class="footer-links" aria-label="Footer links">
             <a href="#career" data-overlay-target="careerOverlay">Careers</a>
             <a href="#contact" data-overlay-target="contactOverlay">Contact Us</a>
-            <a href="#">Privacy Policy</a>
+            <a href="#privacy" data-overlay-target="privacyOverlay">Privacy Policy</a>
         </nav>
         <p>© 2026 Satellite Systems</p>
     </footer>
@@ -316,6 +343,12 @@
         });
 
         document.querySelectorAll('.project-item .content a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                closeOverlays();
+            });
+        });
+
+        document.querySelectorAll('.info-panel a[href^="#"]').forEach(function(link) {
             link.addEventListener('click', function() {
                 closeOverlays();
             });
