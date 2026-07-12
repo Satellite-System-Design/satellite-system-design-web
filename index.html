@@ -543,6 +543,70 @@
         document.querySelector('.systems-active-content a').addEventListener('click', closeOverlays);
         document.querySelector('.project-active-content a').addEventListener('click', closeOverlays);
 
+        const snapSections = Array.from(document.querySelectorAll('.hero, .mission-intro, .strategy-section, .details'));
+        let wheelNavigationLocked = false;
+
+        function animateSectionScroll(target, reduceMotion) {
+            const root = document.documentElement;
+            const startPosition = window.scrollY;
+            const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+            const distance = targetPosition - startPosition;
+            const duration = reduceMotion ? 0 : 1150;
+            const startTime = performance.now();
+            const previousSnapType = root.style.scrollSnapType;
+            const previousScrollBehavior = root.style.scrollBehavior;
+
+            root.style.scrollSnapType = 'none';
+            root.style.scrollBehavior = 'auto';
+
+            function finishScroll() {
+                window.scrollTo(0, targetPosition);
+                root.style.scrollSnapType = previousSnapType;
+                root.style.scrollBehavior = previousScrollBehavior;
+                wheelNavigationLocked = false;
+            }
+
+            if (duration === 0 || Math.abs(distance) < 2) {
+                finishScroll();
+                return;
+            }
+
+            function scrollFrame(currentTime) {
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                const easedProgress = (1 - Math.cos(Math.PI * progress)) / 2;
+
+                window.scrollTo(0, startPosition + distance * easedProgress);
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(scrollFrame);
+                } else {
+                    finishScroll();
+                }
+            }
+
+            window.requestAnimationFrame(scrollFrame);
+        }
+
+        window.addEventListener('wheel', function(event) {
+            if (document.body.classList.contains('overlay-open') || wheelNavigationLocked || Math.abs(event.deltaY) < 8) {
+                return;
+            }
+
+            event.preventDefault();
+
+            const currentIndex = snapSections.reduce(function(closestIndex, section, index) {
+                const currentDistance = Math.abs(section.getBoundingClientRect().top);
+                const closestDistance = Math.abs(snapSections[closestIndex].getBoundingClientRect().top);
+                return currentDistance < closestDistance ? index : closestIndex;
+            }, 0);
+            const direction = event.deltaY > 0 ? 1 : -1;
+            const targetIndex = Math.max(0, Math.min(snapSections.length - 1, currentIndex + direction));
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            wheelNavigationLocked = true;
+            animateSectionScroll(snapSections[targetIndex], reduceMotion);
+        }, { passive: false });
+
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeOverlays();
